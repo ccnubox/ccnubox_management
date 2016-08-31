@@ -9,7 +9,7 @@
 	<tbody>
 		<tr>
 			<td>七牛外链</td>
-			<td>{{ img }}</td>
+			<td><a href="{{ img }}">{{ img }}</a></td>
 		</tr>
 		<tr>
 			<td>图片大小</td>
@@ -27,24 +27,24 @@
 	export default {
 		data(){
 			return {
-				img:'hahaha',
-				size:'hahahhaa',
-				update:'hahahhaha'
+			    img: '',
+			    size: '',
+			    update: ''
 			}
 		},
-		// route: {
-		// 	activate: function () {
-		// 		var self = this
-		// 		request
-		// 			.get('/api/banner')
-		// 			.end(function(err,res){
-		// 				if (err) throw err
-		// 				self.img = res.body.img
-		// 				self.size = res.body.size
-		// 				self.update = res.body.update
-		// 			})
-		// 	}
-		// }
+		route: {
+			activate: function () {
+				var self = this
+				request
+					.get('/api/calendar/')
+					.end(function(err,res){
+						if (err) throw err
+						self.img = res.body.img
+						self.size = res.body.size
+						self.update = res.body.update
+					})
+			}
+		}
 	}
 		
 </script>

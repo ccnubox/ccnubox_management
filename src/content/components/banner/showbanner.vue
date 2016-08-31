@@ -24,26 +24,28 @@ var request = require('superagent');
 export default {
 	data(){
 		return {
-			banners:[{
-				"img": "http://muxistatic.com",
-				"url": "http://muxistudio.com",  
-				'update': "2016-0802"
-			},
-			{
-				"img": "http://muxistatic.com",
-				"url": "http://muxistudio.com",  
-				'update': "2016-0803"
-			},
-			{
-				"img": "http://muxistatic.com",
-				"url": "http://muxistudio.com",  
-				'update': "2016-0804"
-			},
-			{
-				"img": "http://muxistatic.com",
-				"url": "http://muxistudio.com",  
-				'update': "2016-0805"
-			}]
+			banners:[
+			// {
+			// 	"img": "http://muxistatic.com",
+			// 	"url": "http://muxistudio.com",  
+			// 	'update': "2016-0802"
+			// },
+			// {
+			// 	"img": "http://muxistatic.com",
+			// 	"url": "http://muxistudio.com",  
+			// 	'update': "2016-0803"
+			// },
+			// {
+			// 	"img": "http://muxistatic.com",
+			// 	"url": "http://muxistudio.com",  
+			// 	'update': "2016-0804"
+			// },
+			// {
+			// 	"img": "http://muxistatic.com",
+			// 	"url": "http://muxistudio.com",  
+			// 	'update': "2016-0805"
+			// }
+			]
 		}
 	},
 	route: {

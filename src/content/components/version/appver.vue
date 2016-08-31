@@ -7,9 +7,15 @@
 		</tr>
 	</thead>
 	<tbody>
-		<tr v-for="(key,dataItem) of versions[0]">
-			<td>{{ key }}</td>
-			<td>{{ dataItem }}</td>
+		<tr v-for="(key,dataItem) of versions[$route.params.id]">
+			<template v-if=" key == 'download' ">
+				<td>{{ key }}</td>
+				<td><a href="{{ dataItem }}">{{ dataItem }}</a></td>
+			</template>
+			<template v-if=" key != 'download' ">
+				<td>{{ key }}</td>
+				<td>{{ dataItem }}</td>
+			</template>
 		</tr>
 	</tbody>
 </table>

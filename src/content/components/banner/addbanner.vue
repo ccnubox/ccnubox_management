@@ -4,13 +4,13 @@
 		    <div class="control-group">
 		      	<label class="control-label" for="focusedInput">七牛外链</label>
 		      	<div class="controls">
-		        	<input class="input-xlarge focused" id="img" type="text" value="url" v-model="img">
+		        	<input class="input-xlarge focused" id="img" type="text" value="七牛文件名(若有后缀包括后缀)" v-model="banimg" required>
 		      	</div>
 		    </div>
 		    <div class="control-group">
 		      	<label class="control-label" for="focusedInput">图片资源</label>
 		      	<div class="controls">
-		        	<input class="input-xlarge focused" id="url" type="text" value="url" v-model="url">
+		        	<input class="input-xlarge focused" id="url" type="text" value="url" v-model="banurl" required>
 		      	</div>
 		    </div>
 	    </div>
@@ -26,13 +26,27 @@ var request = require('superagent');
 export default {
 	data(){
 		return {
-			img:'',
-			url:''
+			banimg:'',
+			banurl:''
 		}
 	},
 	methods:{
 		addbanner: function(){
-
+			var self =  this
+			if (imgtxt && urltxt) {
+				request
+					.post('/banner/')
+					.set('Authorization',localStorage.str)
+					.send({img:self.banimg,url:self.banurl})
+					.end(function(err,res){
+						if (err) throw err;
+						if (res.status == 201) {
+							alert('上传成功');
+						}
+						self.banimg = ''
+						self.banurl = ''
+					})
+				}
 		}
 	}
 }
