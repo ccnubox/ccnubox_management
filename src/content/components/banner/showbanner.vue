@@ -52,10 +52,10 @@ export default {
 		activate: function () {
 			var self = this
 			request
-				.get('/api/banner')
+				.get('/api/banner/')
 				.end(function(err,res){
 					if (err) throw err
-					self.banner = res.body
+					self.banners = res.body
 				})
 		}
 	}

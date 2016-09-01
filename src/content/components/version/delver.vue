@@ -28,7 +28,7 @@ export default {
 		delver:function(){
 			var self = this
 			request
-				.del('/api/app/str:version/	')
+				.del('/api/app/')
 				.set('Authorization',localStorage.str)
 				.query({version:self.verdel})
 				.end(function(err,res){

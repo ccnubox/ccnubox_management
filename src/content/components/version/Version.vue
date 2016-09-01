@@ -74,7 +74,7 @@ export default {
                 .get('/api/app/')
                 .end(function(err,res){
                     if (err) throw err
-                    self.version = res.body
+                    self.versions = res.body
                 })
         }
     }

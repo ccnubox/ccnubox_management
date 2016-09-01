@@ -27,7 +27,7 @@ export default {
 		delpatch:function(){
 			var self = this
 			request
-				.del('/api/patch/str:version/')
+				.del('/api/patch/')
 				.set('Authorization',localStorage.str)
 				.query({version:self.patchdel})
 				.end(function(err,res){

@@ -15,11 +15,7 @@
                             </a>
                             <ul class="dropdown-menu">
                                 <li>
-                                    <a tabindex="-1" href="#">Profile</a>
-                                </li>
-                                <li class="divider"></li>
-                                <li>
-                                    <a tabindex="-1" href="login.html">Logout</a>
+                                    <a tabindex="-1" v-link="{ path: '/login'}">Login</a>
                                 </li>
                             </ul>
                         </li>

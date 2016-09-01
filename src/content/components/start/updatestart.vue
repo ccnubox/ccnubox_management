@@ -15,7 +15,7 @@
 	    </div>
     </div>
     <div class="form-actions">
-      <button class="btn btn-success">Update</button>
+      <button class="btn btn-success" @click="updatestart">Update</button>
       <button type="reset" class="btn">Cancel</button>
     </div>
   </fieldset>
@@ -31,7 +31,7 @@ export default {
 		}
 	},
 	methods: {
-		updatecal: function () {
+		updatestart: function () {
 			var self =  this
 			request
 				.post('/api/start/')
