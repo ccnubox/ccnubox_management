@@ -47,19 +47,26 @@
 				size: ''
 			}
 		},
+		props: {
+	    	url: {
+	          	type: String
+	      	}
+  		},
 		route: {
 			activate: function () {
 				var self = this
 				request
-					.get('/api/app/latest/')
+					.get(self.url + '/app/latest/')
 					.end(function(err,res){
+						console.log(res.text)
 						if (err) throw err
-						self.name = res.body.name
-						self.version = res.body.version
-						self.download = res.body.download
-						self.update = res.body.update
-						self.intro = res.body.intro
-						self.size = res.body.size
+						var c =  JSON.parse(res.text)
+						self.name = c.name
+						self.version = c.version
+						self.download = c.download
+						self.update = c.update
+						self.intro = c.intro
+						self.size = c.size
 					})
 			}
 		}

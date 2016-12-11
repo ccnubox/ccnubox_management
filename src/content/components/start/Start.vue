@@ -11,6 +11,15 @@
 			<a v-link="{ path: '/start/update'}">update</a>
 		</li>
 	</ul>
-	<router-view></router-view>
+	<router-view :url="url"></router-view>
 </div>
 </template>
+<script>
+export default{
+	props: {
+    	url: {
+          	type: String
+      	}
+  	},
+}
+</script>

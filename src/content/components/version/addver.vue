@@ -58,17 +58,23 @@ var request = require('superagent');
 			appsize: ''
 		}
 	},
+	props: {
+    	url: {
+          	type: String
+      	}
+  	},
 	methods:{
-		addver: function(){
+		addver: function(e){
+			e.preventDefault()
 			var self =  this
 			request
-				.post('/api/app/')
+				.post(self.url + '/app/')
 				.set('Authorization',localStorage.str)
-				.send({name:self.appname,version:self.appver,download:self.appdnl,update:self.appupdt,intro:self.appintro,size:appsize})
+				.send({name:self.appname,version:self.appver,download:self.appdnl,update:self.appupdt,intro:self.appintro,size:self.appsize})
 				.end(function(err,res){
 					if (err) throw err;
 					if (res.status == 201) {
-						alert(res.msg);
+						alert(res.body.msg);
 					}
 					self.appname = '',
 					self.appver = '',

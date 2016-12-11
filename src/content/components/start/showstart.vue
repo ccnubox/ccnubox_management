@@ -8,12 +8,12 @@
 	</thead>
 	<tbody>
 		<tr>
-			<td>七牛外链</td>
-			<td><a href="{{ img }}">{{ img }}</a></td>
+			<td>图片名</td>
+			<td><a href="{{ url }}">{{ img }}</a></td>
 		</tr>
 		<tr>
 			<td>图片链接</td>
-			<td><a href="{{ url }}">{{ url }}</a></td>
+			<td><a href="{{ url }}">{{ imgurl }}</a></td>
 		</tr>
 		<tr>
 			<td>更新时间</td>
@@ -28,19 +28,24 @@
 		data(){
 			return {
 			    img: '',
-			    url: '',
+			    imgurl: '',
 			    update: ''
 			}
 		},
+		props: {
+	    	url: {
+	          	type: String
+	      	}
+	  	},		
 		route: {
 			activate: function () {
 				var self = this
 				request
-					.get('/api/start/')
+					.get(self.url + '/start/')
 					.end(function(err,res){
 						if (err) throw err
-						self.img = res.body.img
-						self.url = res.body.url
+						self.img = res.body.filename
+						self.imgurl = res.body.img
 						self.update = res.body.update
 					})
 			}

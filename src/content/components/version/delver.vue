@@ -24,11 +24,17 @@ export default {
 			verdel:''
 		}
 	},
+	props: {
+    	url: {
+          	type: String
+      	}
+  	},
 	methods:{
-		delver:function(){
+		delver:function(e){
+			e.preventDefault()
 			var self = this
 			request
-				.del('/api/app/')
+				.del(self.url + '/app/')
 				.set('Authorization',localStorage.str)
 				.query({version:self.verdel})
 				.end(function(err,res){

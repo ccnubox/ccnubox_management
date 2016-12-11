@@ -25,7 +25,7 @@
             <a v-link="{ path: '/patch/delpatch'}">删除补丁</a>
         </li>
 	</ul>
-	<router-view :patches="patches"></router-view>
+	<router-view :patches="patches" :url="url"></router-view>
 </div>
 </template>
 <script>
@@ -63,11 +63,16 @@ export default {
             ]
         }
     },
+    props: {
+        url: {
+            type: String
+        }
+    },
     route: {
         activate: function () {
             var self = this
             request
-                .get('/api/patch/')
+                .get(self.url + '/patch/')
                 .end(function(err,res){
                     if (err) throw err
                     self.patches = res.body

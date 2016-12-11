@@ -4,7 +4,7 @@
 	    <div class="control-group">
 	      	<label class="control-label" for="focusedInput">七牛外链</label>
 	      	<div class="controls">
-	        	<input class="input-xlarge focused" id="focusedInput" type="text" value="url" v-model="calimg">
+	        	<input class="input-xlarge focused" id="focusedInput" type="text" value="七牛文件名(若有后缀包括后缀)" v-model="calimg">
 	      	</div>
 	    </div>
 	    <div class="control-group">
@@ -30,11 +30,17 @@ export default {
 			calsize:''
 		}
 	},
+	props: {
+    	url: {
+          	type: String
+      	}
+  	},
 	methods: {
-		updatecal: function () {
+		updatecal: function (e) {
+			e.preventDefault()
 			var self =  this
 			request
-				.post('/api/calendar/')
+				.post(self.url + '/calendar/')
 				.set('Authorization',localStorage.str)
 				.send({img:self.calimg,size:self.calsize})
 				.end(function(err,res){

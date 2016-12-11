@@ -2,20 +2,20 @@
 	<form class="form-horizontal" method="post">
 	  	<fieldset>
 		    <div class="control-group">
-		      	<label class="control-label" for="focusedInput">七牛外链</label>
+		      	<label class="control-label" for="focusedInput">title</label>
 		      	<div class="controls">
-		        	<input class="input-xlarge focused" id="img" type="text" value="七牛文件名(若有后缀包括后缀)" v-model="banimg" required>
+		        	<input class="input-xlarge focused" id="title" type="text" v-model="title" required>
 		      	</div>
 		    </div>
 		    <div class="control-group">
-		      	<label class="control-label" for="focusedInput">图片资源</label>
+		      	<label class="control-label" for="focusedInput">userinfo</label>
 		      	<div class="controls">
-		        	<input class="input-xlarge focused" id="url" type="text" value="url" v-model="banurl" required>
+		        	<input class="input-xlarge focused" id="userinfo" type="text" v-model="userinfo" required>
 		      	</div>
 		    </div>
 	    </div>
 	    <div class="form-actions">
-	      <button class="btn btn-success" @click="addbanner">Add New <i class="icon-plus icon-white"></i></button>
+	      <button class="btn btn-success" @click="push">Push</button>
 	      <button type="reset" class="btn">Cancel</button>
 	    </div>
 	  </fieldset>
@@ -26,8 +26,8 @@ var request = require('superagent');
 export default {
 	data(){
 		return {
-			banimg:"",
-			banurl:""
+			title:"",
+			userinfo:""
 		}
 	},
 	props: {
@@ -36,22 +36,22 @@ export default {
       	}
   	},
 	methods:{
-		addbanner: function(e){
+		push: function(e){
 			e.preventDefault()
 			var self =  this
-			if (this.banimg && this.banurl) {
+			if (this.title && this.userinfo) {
 				request
-					.post(self.url + '/banner/')
+					.post(self.url + '/push/')
 					.set('Authorization',localStorage.str)
-					.send({img:self.banimg,url:self.banurl})
+					.send({title:self.title,userinfo:self.userinfo})
 					.set('Content-Type','application/json')
 					.end(function(err,res){
 						if (err) throw err;
 						if (res.status == 201) {
 							alert('上传成功');
 						}
-						self.banimg = ''
-						self.banurl = ''
+						self.title = ''
+						self.userinfo = ''
 					})
 				}
 		}

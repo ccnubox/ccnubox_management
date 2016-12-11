@@ -1,0 +1,69 @@
+<template>
+	<table class="table table-bordered" style="table-layout:fixed">
+		<thead>
+			<tr>
+				<th width="8%">Banner</th>
+				<th width="40%">七牛链接</th>
+				<th width="40%">图片名</th>
+				<th width="12%">更新时间</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr v-for="banner in banners"  track-by="$index">
+				<td>{{ $index }}</td>
+				<td><a href="{{ banner.img }}">{{ banner.img }}</a></td>
+				<td><a href="{{ banner.img}}">{{ banner.filename }}</a></td>
+				<td>{{ banner.update }}</td>
+			</tr>
+		</tbody>
+	</table>
+</template>
+
+<script>
+var request = require('superagent');
+export default {
+	data(){
+		return {
+			banners:[]
+			// {
+			// 	"img": "http://muxistatic.com",
+			// 	"url": "http://muxistudio.com",  
+			// 	'update': "2016-0802"
+			// },
+			// {
+			// 	"img": "http://muxistatic.com",
+			// 	"url": "http://muxistudio.com",  
+			// 	'update': "2016-0803"
+			// },
+			// {
+			// 	"img": "http://muxistatic.com",
+			// 	"url": "http://muxistudio.com",  
+			// 	'update': "2016-0804"
+			// },
+			// {
+			// 	"img": "http://muxistatic.com",
+			// 	"url": "http://muxistudio.com",  
+			// 	'update': "2016-0805"
+			// }
+		}
+	},
+	props: {
+    	url: {
+          	type: String
+      	}
+  	},
+	route: {
+		activate: function () {
+			var self = this
+			request
+				.get(self.url + '/ios/banner/')
+				.end(function(err,res){
+					if (err) throw err
+					var a = res.text
+					var c =  JSON.parse(a)
+					self.banners = c
+				})
+		}
+	}
+}
+</script>

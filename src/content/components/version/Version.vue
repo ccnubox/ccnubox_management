@@ -4,12 +4,12 @@
 </div>
 <div>
 	<ul class="nav nav-tabs">
-        <li :class="currentPath == '/version/' ? 'active' : ''">
-            <a v-link="{ path: '/version/'}">最新版本</a>
+        <li :class="currentPath == '/version/latestver' ? 'active' : ''">
+            <a v-link="{ path: '/version/latestver'}">最新版本</a>
         </li>
 		<li :class="currentPath == '/version/appver' ? 'active' : ''">
             <li class="dropdown">
-                <a href="#" data-toggle="dropdown" class="dropdown-toggle">查看版本<b class="caret"></b></a>
+                <a href="#" data-toggle="dropdown" class="dropdown-toggle" @click="update">查看版本<b class="caret"></b></a>
                 <ul class="dropdown-menu" id="menu1">
                     <li v-for="version in versions" track-by="$index">
                         <a v-link="{ name: 'version' , params: { id: $index }}">{{ version.version }}</a>
@@ -24,7 +24,7 @@
             <a v-link="{ path: '/version/delver'}">删除版本</a>
         </li>
 	</ul> 
-	<router-view :versions="versions"></router-view>
+	<router-view :versions="versions" :url="url"></router-view>
 </div>
 
 </template>
@@ -67,15 +67,34 @@ export default {
             ]
         }
     },
+    props: {
+        url: {
+            type: String
+        }
+    },
     route: {
         activate: function () {
             var self = this
             request
-                .get('/api/app/')
+                .get(self.url + '/app/')
                 .end(function(err,res){
+                    var c =  JSON.parse(res.text)
+                    console.log(c)
                     if (err) throw err
-                    self.versions = res.body
+                    self.versions = c
                 })
+        }
+    },
+    methods:{
+        update:function(){
+            var self = this
+            request
+                .get(self.url + '/app/')
+                .end(function(err,res){
+                    var c =  JSON.parse(res.text)
+                    if (err) throw err
+                    self.versions = c
+                })            
         }
     }
 }

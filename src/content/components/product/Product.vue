@@ -59,11 +59,16 @@ export default {
 		   update: ''
 		}
 	},
+	props: {
+    	url: {
+          	type: String
+      	}
+  	},
 	route: {
 		activate: function () {
 			var self = this
 			request
-				.get('/api/product/')
+				.get(self.url + '/product/')
 				.end(function(err,res){
 					if (err) throw err
 					self.products = res.body._product

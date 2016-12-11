@@ -4,12 +4,12 @@
 		    <div class="control-group">
 		      	<label class="control-label" for="focusedInput">name</label>
 		      	<div class="controls">
-		        	<input class="input-xlarge focused" id="name" type="text" value="版本号" v-model="patchdel">
+		        	<input class="input-xlarge focused" id="name" type="text" value="七牛文件名" v-model="bannerdel">
 		      	</div>
 		    </div>
 	    </div>
 	    <div class="form-actions">
-	      <button class="btn btn-success" @click="delpatch">Delete</button>
+	      <button class="btn btn-success" @click="delbanner">Delete</button>
 	      <button type="reset" class="btn">Cancel</button>
 	    </div>
 	  </fieldset>
@@ -20,7 +20,7 @@ var request = require('superagent');
 export default {
 	data(){
 		return {
-			patchdel:''
+			baniosdel:''
 		}
 	},
 	props: {
@@ -29,18 +29,19 @@ export default {
       	}
   	},
 	methods:{
-		delpatch:function(){
+		delbanner:function(e){
+			e.preventDefault()
 			var self = this
 			request
-				.del(self.url + '/patch/')
+				.del(self.url + '/ios/banner/')
 				.set('Authorization',localStorage.str)
-				.query({version:self.patchdel})
+				.query({name:self.baniosdel})
 				.end(function(err,res){
 					if (err) throw err;
 					if (res.status == 200) {
-						alert(res.msg);
+						alert('删除成功');
 					}
-					self.patchdel = ''
+					self.baniosdel = ''
 				})
 		}
 	}

@@ -23,11 +23,17 @@ export default {
 			bannerdel:''
 		}
 	},
+	props: {
+    	url: {
+          	type: String
+      	}
+  	},
 	methods:{
-		delbanner:function(){
+		delbanner:function(e){
+			e.preventDefault()
 			var self = this
 			request
-				.del('/banner/')
+				.del(self.url + '/banner/')
 				.set('Authorization',localStorage.str)
 				.query({name:self.bannerdel})
 				.end(function(err,res){

@@ -36,7 +36,13 @@
                         <a v-link="{ path: '/banner'}"><i class="icon-chevron-right"></i>Banner</a>
                     </li>
                     <li>
+                        <a v-link="{ path: '/banner-ios'}"><i class="icon-chevron-right"></i>Banner for ios</a>
+                    </li>
+                    <li>
                         <a v-link="{ path: '/calendar'}"><i class="icon-chevron-right"></i>校历</a>
+                    </li>
+                    <li>
+                        <a v-link="{ path: '/calendar-ios'}"><i class="icon-chevron-right"></i>校历 for ios</a>
                     </li>
                     <li>
                         <a v-link="{ path: '/start'}"><i class="icon-chevron-right"></i>闪屏</a>
@@ -51,16 +57,25 @@
                         <a v-link="{ path: '/patch'}"><i class="icon-chevron-right"></i>补丁包版本控制</a>
                     </li>
                     <li class="active">
+                        <a v-link="{ path: '/ios'}"><i class="icon-chevron-right"></i>ios</a>
+                    </li>
+                    <li class="active">
                         <a v-link="{ path: '/product/0'}"><i class="icon-chevron-right"></i>产品展示</a>
                     </li>
                 </ul>
             </div>
 	        <div class="span9" id="content">
-				<router-view></router-view>
+				<router-view :url="url"></router-view>
 			</div>
 	    </div>
     </div>
 </template>
 <script>
-    
+   export default {
+        data(){
+            return {
+                url:'http://121.42.176.189:5486/api'
+            }
+        }
+    } 
 </script>

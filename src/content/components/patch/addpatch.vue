@@ -51,17 +51,22 @@ var request = require('superagent');
 			ptcsize:''
 		}
 	},
+	props: {
+    	url: {
+          	type: String
+      	}
+  	},
 	methods:{
 		addpatch: function(){
 			var self =  this
 			request
-				.post('/api/patch/')
+				.post(self.url + '/patch/')
 				.set('Authorization',localStorage.str)
-				.send({version:self.ptcver,download:self.ptcdnl,update:self.ptcupdt,intro:self.ptcintro,size:ptcsize})
+				.send({version:self.ptcver,download:self.ptcdnl,update:self.ptcupdt,intro:self.ptcintro,size:self.ptcsize})
 				.end(function(err,res){
 					if (err) throw err;
 					if (res.status == 201) {
-						alert(res.msg);
+						alert(res.body.msg);
 					}
 					self.ptcver =''
 					self.ptcdnl=''

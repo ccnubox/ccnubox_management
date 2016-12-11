@@ -4,18 +4,18 @@
 	    <div class="control-group">
 	      	<label class="control-label" for="focusedInput">七牛外链</label>
 	      	<div class="controls">
-	        	<input class="input-xlarge focused" id="focusedInput" v-model="startimg" type="text" value="七牛文件名(若有后缀包括后缀)">
+	        	<input class="input-xlarge focused" id="focusedInput" type="text" value="七牛文件名(若有后缀包括后缀)" v-model="calimg">
 	      	</div>
 	    </div>
 	    <div class="control-group">
-	      	<label class="control-label" for="focusedInput">图片链接</label>
+	      	<label class="control-label" for="focusedInput">图片大小</label>
 	      	<div class="controls">
-	        	<input class="input-xlarge focused" id="focusedInput" v-model="starturl" type="text" value="url">
+	        	<input class="input-xlarge focused" id="focusedInput" type="text" value="_x_" v-model="calsize">
 	      	</div>
 	    </div>
     </div>
     <div class="form-actions">
-      <button class="btn btn-success" @click="updatestart">Update</button>
+      <button class="btn btn-success" @click="updatecal">Update</button>
       <button type="reset" class="btn">Cancel</button>
     </div>
   </fieldset>
@@ -26,8 +26,8 @@ var request = require('superagent');
 export default {
 	data(){
 		return {
-			startimg:'',
-			starturl:''
+			calimg:'',
+			calsize:''
 		}
 	},
 	props: {
@@ -36,20 +36,20 @@ export default {
       	}
   	},
 	methods: {
-		updatestart: function (e) {
+		updatecal: function (e) {
 			e.preventDefault()
 			var self =  this
 			request
-				.post(self.url + '/start/')
+				.post(self.url + '/ios/calendar/')
 				.set('Authorization',localStorage.str)
-				.send({img:self.startimg,size:self.starturl})
+				.send({img:self.calimg,size:self.calsize})
 				.end(function(err,res){
 					if (err) throw err
 					if (res.status == 201) {
 						alert('创建成功');
 					}
-					self.startimg = ''
-					self.starturl = ''					
+					self.calimg = ''
+					self.calsize = ''					
 				})
 		}
 	}

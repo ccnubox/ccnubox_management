@@ -4,13 +4,13 @@
 		    <div class="control-group">
 		      	<label class="control-label" for="focusedInput">七牛外链</label>
 		      	<div class="controls">
-		        	<input class="input-xlarge focused" id="img" type="text" value="七牛文件名(若有后缀包括后缀)" v-model="banimg" required>
+		        	<input class="input-xlarge focused" id="img" type="text" value="七牛文件名(若有后缀包括后缀)" v-model="baniosimg" required>
 		      	</div>
 		    </div>
 		    <div class="control-group">
 		      	<label class="control-label" for="focusedInput">图片资源</label>
 		      	<div class="controls">
-		        	<input class="input-xlarge focused" id="url" type="text" value="url" v-model="banurl" required>
+		        	<input class="input-xlarge focused" id="url" type="text" value="url" v-model="baniosurl" required>
 		      	</div>
 		    </div>
 	    </div>
@@ -26,8 +26,8 @@ var request = require('superagent');
 export default {
 	data(){
 		return {
-			banimg:"",
-			banurl:""
+			baniosimg:"",
+			baniosurl:""
 		}
 	},
 	props: {
@@ -39,19 +39,19 @@ export default {
 		addbanner: function(e){
 			e.preventDefault()
 			var self =  this
-			if (this.banimg && this.banurl) {
+			if (this.baniosimg && this.baniosurl) {
 				request
-					.post(self.url + '/banner/')
+					.post(self.url + '/ios/banner/')
 					.set('Authorization',localStorage.str)
-					.send({img:self.banimg,url:self.banurl})
+					.send({img:self.baniosimg,url:self.baniosurl})
 					.set('Content-Type','application/json')
 					.end(function(err,res){
 						if (err) throw err;
 						if (res.status == 201) {
 							alert('上传成功');
 						}
-						self.banimg = ''
-						self.banurl = ''
+						self.baniosimg = ''
+						self.baniosurl = ''
 					})
 				}
 		}

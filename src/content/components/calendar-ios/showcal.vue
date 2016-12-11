@@ -41,7 +41,7 @@
 			activate: function () {
 				var self = this
 				request
-					.get(self.url + '/calendar/')
+					.get(self.url + '/ios/calendar/')
 					.end(function(err,res){
 						console.log(res.body)
 						if (err) throw err

@@ -42,11 +42,16 @@
 				size: ''
 			}
 		},
+		props: {
+	    	url: {
+	          	type: String
+	      	}
+  		},
 		route: {
 			activate: function () {
 				var self = this
 				request
-					.get('/api/patch/latest/')
+					.get(self.url + '/patch/latest/')
 					.end(function(err,res){
 						if (err) throw err
 						self.version = res.body.version

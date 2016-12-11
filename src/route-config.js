@@ -5,9 +5,18 @@ import AddBanner from './content/components/banner/addbanner.vue'
 import ShowBanner from './content/components/banner/showbanner.vue'
 import DelBanner from './content/components/banner/delbanner.vue'
 
+import BannerIos from './content/components/banner-ios/Banner.vue'
+import AddBannerIos from './content/components/banner-ios/addbanner.vue'
+import ShowBannerIos from './content/components/banner-ios/showbanner.vue'
+import DelBannerIos from './content/components/banner-ios/delbanner.vue'
+
 import Calendar from './content/components/calendar/Calendar.vue'
 import ShowCal from './content/components/calendar/showcal.vue'
 import UpdateCal from './content/components/calendar/updatecal.vue'
+
+import CalendarIos from './content/components/calendar-ios/Calendar.vue'
+import ShowCalIos from './content/components/calendar-ios/showcal.vue'
+import UpdateCalIos from './content/components/calendar-ios/updatecal.vue'
 
 import Start from './content/components/start/Start.vue'
 import ShowSta from './content/components/start/showstart.vue'
@@ -28,7 +37,13 @@ import delPatch from './content/components/patch/delpatch.vue'
 import Product from './content/components/product/Product.vue'
 import showprod from './content/components/product/showprod.vue'
 
+import iosDevice from './content/components/ios/ios.vue'
+import iosShow from './content/components/ios/showios.vue'
+import iosRegister from './content/components/ios/register.vue'
+import iosPush from './content/components/ios/push.vue'
+
 import Login from './login.vue'
+
 
 export default {
 	'/':{
@@ -48,6 +63,20 @@ export default {
 						}
 					}
 			},
+			'banner-ios':{
+				component:BannerIos,
+					subRoutes:{
+						'add':{
+							component: AddBannerIos
+						},
+						'/':{
+							component: ShowBannerIos
+						},
+						'delete':{
+							component: DelBannerIos
+						}						
+					}
+			},
 			'calendar': {
 				component: Calendar,
 					subRoutes: {
@@ -57,6 +86,17 @@ export default {
 						'update': {
 							component: UpdateCal
 						}
+					}
+			},
+			'calendar-ios':{
+				component: CalendarIos,
+					subRoutes:{
+						'/': {
+							component: ShowCalIos
+						},
+						'update': {
+							component: UpdateCalIos
+						}						
 					}
 			},
 			'start': {
@@ -76,7 +116,7 @@ export default {
 						'addver': {
 							component: addVer
 						},
-						'/': {
+						'/latestver': {
 							component: latestVer
 						},
 						'appver/:id':{
@@ -115,6 +155,20 @@ export default {
 						}
 					}
 			},
+			'ios':{
+				component: iosDevice,
+					subRoutes:{
+						'/':{
+							component: iosShow
+						},
+						'/register':{
+							component:iosRegister
+						},
+						'/push':{
+							component:iosPush
+						}
+					}
+			}
 		}
 	},
 	'login':{
