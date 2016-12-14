@@ -2,20 +2,20 @@
 	<form class="form-horizontal" method="post">
 	  	<fieldset>
 		    <div class="control-group">
-		      	<label class="control-label" for="focusedInput">title</label>
+		      	<label class="control-label" for="focusedInput">联系方式</label>
 		      	<div class="controls">
-		        	<input class="input-xlarge focused" id="title" type="text" v-model="title" required>
+		        	<input class="input-xlarge focused" id="contact" type="text" v-model="contact" required>
 		      	</div>
 		    </div>
 		    <div class="control-group">
-		      	<label class="control-label" for="focusedInput">userinfo</label>
+		      	<label class="control-label" for="focusedInput">反馈内容</label>
 		      	<div class="controls">
-		        	<input class="input-xlarge focused" id="userinfo" type="text" v-model="userinfo" required>
+		        	<input class="input-xlarge focused" id="feedback" type="text" v-model="feedback" required>
 		      	</div>
 		    </div>
 	    </div>
 	    <div class="form-actions">
-	      <button class="btn btn-success" @click="push">Push</button>
+	      <button class="btn btn-success" @click="register">Add New <i class="icon-plus icon-white"></i></button>
 	      <button type="reset" class="btn">Cancel</button>
 	    </div>
 	  </fieldset>
@@ -26,8 +26,8 @@ var request = require('superagent');
 export default {
 	data(){
 		return {
-			title:"",
-			userinfo:""
+			contact:"",
+			feedback:""
 		}
 	},
 	props: {
@@ -36,22 +36,22 @@ export default {
       	}
   	},
 	methods:{
-		push: function(e){
+		register: function(e){
 			e.preventDefault()
 			var self =  this
-			if (this.title && this.userinfo) {
+			if (this.contact && this.feedback) {
 				request
-					.post(self.url + '/push/')
+					.post(self.url + '/feedbacks/')
 					.set('Authorization',localStorage.str)
-					.send({title:self.title,userinfo:self.userinfo})
+					.send({contact:self.contact,feedback:self.feedback})
 					.set('Content-Type','application/json')
 					.end(function(err,res){
 						if (err) throw err;
 						if (res.status == 201) {
-							alert('上传成功');
+							alert('success');
 						}
-						self.title = ''
-						self.userinfo = ''
+						self.contact = ''
+						self.feedback = ''
 					})
 				}
 		}

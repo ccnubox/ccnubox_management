@@ -22,7 +22,7 @@
 		    <div class="control-group">
 		      	<label class="control-label" for="focusedInput">七牛外链</label>
 		      	<div class="controls">
-		        	<input class="input-xlarge focused" id="img" type="text" value="点击表单上的七牛链接" v-model="url" required>
+		        	<input class="input-xlarge focused" id="img" type="text" value="点击表单上的七牛链接" v-model="imgurl" required>
 		      	</div>
 		      	<label class="control-label" for="focusedInput">修改排序</label>
 		      	<div class="controls">
@@ -65,27 +65,40 @@ export default {
 			// 	'update': "2016-0805"
 			// }
 			num:0,
-			url:""
+			imgurl:""
 		}
 	},
 	methods:{
 		geturl(img){
-			this.url = img
+			this.imgurl = img
 		},
 		modify(){
 			var self = this
 			request
 				.put(self.url + '/banner/')
 				.set('Authorization',localStorage.str)
-				.send({img:self.url,num:self.num})
+				.send({img:self.imgurl,num:self.num})
 				.set('Content-Type','application/json')
 				.end(function(err,res){
 					if (err) throw err;
 					if (res.status == 200) {
 						alert('修改成功');
+						self.getinfo()
 					}
-					self.url = ''
+					self.imgurl = ''
 					self.num = ''
+				})
+		},
+		getinfo(){
+			var self = this
+			request
+				.get(self.url + '/banner/')
+				.end(function(err,res){
+					console.log(res.text)
+					if (err) throw err
+					var a = res.text
+					var c =  JSON.parse(a)
+					self.banners = c
 				})
 		}
 	},
@@ -96,15 +109,7 @@ export default {
   	},
 	route: {
 		activate: function () {
-			var self = this
-			request
-				.get(self.url + '/banner/')
-				.end(function(err,res){
-					if (err) throw err
-					var a = res.text
-					var c =  JSON.parse(a)
-					self.banners = c
-				})
+			this.getinfo()
 		}
 	}
 }

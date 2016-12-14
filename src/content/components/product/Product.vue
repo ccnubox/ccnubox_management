@@ -15,8 +15,11 @@
                 </ul>
             </li>
 		</li>
+		<li :class="currentPath == '/product/add' ? 'active' : ''">
+			<a v-link="{ path: '/product/add'}">添加产品</a>
+		</li>
 	</ul>
-	<router-view :products="products"></router-view>
+	<router-view :products="products" :url="url"></router-view>
 </div>
 </template>
 <script>
@@ -71,8 +74,10 @@ export default {
 				.get(self.url + '/product/')
 				.end(function(err,res){
 					if (err) throw err
-					self.products = res.body._product
-					self.update = res.body.update
+					var a = res.text
+					var c =  JSON.parse(a)
+					self.products = c._products
+					self.update = c.update
 				})
 		}
 	}

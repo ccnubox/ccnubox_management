@@ -57,7 +57,8 @@ var request = require('superagent');
       	}
   	},
 	methods:{
-		addpatch: function(){
+		addpatch: function(e){
+			e.preventDefault()
 			var self =  this
 			request
 				.post(self.url + '/patch/')

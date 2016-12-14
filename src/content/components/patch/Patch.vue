@@ -74,8 +74,9 @@ export default {
             request
                 .get(self.url + '/patch/')
                 .end(function(err,res){
+                    var c =  JSON.parse(res.text)
                     if (err) throw err
-                    self.patches = res.body
+                    self.patches = c
                 })
         }
     }

@@ -13,6 +13,12 @@
 		        	<input class="input-xlarge focused" id="url" type="text" value="url" v-model="banurl" required>
 		      	</div>
 		    </div>
+		    <div class="control-group">
+		      	<label class="control-label" for="focusedInput">序号</label>
+		      	<div class="controls">
+		        	<input class="input-xlarge focused" id="num" type="text" value="序号" v-model="bannum" required>
+		      	</div>
+		    </div>
 	    </div>
 	    <div class="form-actions">
 	      <button class="btn btn-success" @click="addbanner">Add New <i class="icon-plus icon-white"></i></button>
@@ -27,7 +33,8 @@ export default {
 	data(){
 		return {
 			banimg:"",
-			banurl:""
+			banurl:"",
+			bannum:""
 		}
 	},
 	props: {
@@ -39,11 +46,11 @@ export default {
 		addbanner: function(e){
 			e.preventDefault()
 			var self =  this
-			if (this.banimg && this.banurl) {
+			if (this.banimg && this.banurl && this.bannum) {
 				request
 					.post(self.url + '/banner/')
 					.set('Authorization',localStorage.str)
-					.send({img:self.banimg,url:self.banurl})
+					.send({img:self.banimg,url:self.banurl,num:self.bannum})
 					.set('Content-Type','application/json')
 					.end(function(err,res){
 						if (err) throw err;
@@ -52,6 +59,7 @@ export default {
 						}
 						self.banimg = ''
 						self.banurl = ''
+						self.bannum = ''
 					})
 				}
 		}

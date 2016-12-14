@@ -2,8 +2,8 @@
 	<table class="table table-bordered" style="table-layout:fixed">
 		<thead>
 			<tr>
-				<th width="20%">user</th>
-				<th width="80%">反馈信息</th>
+				<th width="20%">k</th>
+				<th width="80%">v</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -20,9 +20,7 @@ var request = require('superagent');
 export default {
 	data(){
 		return {
-			feedbacks:[],
-			// {'13007149711':'啊啊啊啊'},
-		    // {'2014210761': '啦啦啦啦啦'}
+			config:{'k1':'v1', 'k2':'v2'},
 			arrays:[]
 		}
 	},
@@ -35,18 +33,17 @@ export default {
 		activate: function () {
 			var self = this
 			request
-				.get(self.url + '/feedbacks/')
+				.get(self.url + '/ios/config/')
 				.set('Authorization',localStorage.str)
 				.end(function(err,res){
 					if (err) throw err
-					self.feedbacks = res.body
+					self.config = res.body.config
 					// var a = res.text
 					// var c =  JSON.parse(a)
 					// self.banners = c
-					for(var i = 0;i<self.backs.length;i++){
-						var key = Object.keys(self.feedbacks[i])
-						var value = self.feedbacks[i][key]
-						self.arrays.push({user:key,msg:value})
+					var key = Object.keys(self.config)
+					for(var i = 0;i<key.length;i++){
+						self.arrays.push({user:key[i],msg:self.config[key[i]]})
 					}
 				})
 		}

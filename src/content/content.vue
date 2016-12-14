@@ -57,7 +57,16 @@
                         <a v-link="{ path: '/patch'}"><i class="icon-chevron-right"></i>补丁包版本控制</a>
                     </li>
                     <li class="active">
-                        <a v-link="{ path: '/ios'}"><i class="icon-chevron-right"></i>ios</a>
+                        <a>ios</a>
+                    </li>
+                    <li>
+                        <a v-link="{ path: '/ios'}"><i class="icon-chevron-right"></i>用户反馈</a>
+                    </li>
+                    <li>
+                        <a v-link="{ path: '/ios-push'}"><i class="icon-chevron-right"></i>注册id</a>
+                    </li>
+                    <li>
+                        <a v-link="{ path: '/ios-config'}"><i class="icon-chevron-right"></i>配置</a>
                     </li>
                     <li class="active">
                         <a v-link="{ path: '/product/0'}"><i class="icon-chevron-right"></i>产品展示</a>

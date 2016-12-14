@@ -29,12 +29,12 @@ export default {
       	}
   	},
 	methods:{
-		delpatch:function(){
+		delpatch:function(e){
+			e.preventDefault()
 			var self = this
 			request
-				.del(self.url + '/patch/')
-				.set('Authorization',localStorage.str)
-				.query({version:self.patchdel})
+				.del(self.url + '/patch/' + self.patchdel)
+				.set('Authorization',localStorage.str)			
 				.end(function(err,res){
 					if (err) throw err;
 					if (res.status == 200) {

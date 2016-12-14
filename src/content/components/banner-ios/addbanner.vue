@@ -13,6 +13,12 @@
 		        	<input class="input-xlarge focused" id="url" type="text" value="url" v-model="baniosurl" required>
 		      	</div>
 		    </div>
+		    <div class="control-group">
+		      	<label class="control-label" for="focusedInput">序号</label>
+		      	<div class="controls">
+		        	<input class="input-xlarge focused" id="num" type="text" value="序号" v-model="baniosnum" required>
+		      	</div>
+		    </div>
 	    </div>
 	    <div class="form-actions">
 	      <button class="btn btn-success" @click="addbanner">Add New <i class="icon-plus icon-white"></i></button>
@@ -27,7 +33,8 @@ export default {
 	data(){
 		return {
 			baniosimg:"",
-			baniosurl:""
+			baniosurl:"",
+			baniosnum:""
 		}
 	},
 	props: {
@@ -43,7 +50,7 @@ export default {
 				request
 					.post(self.url + '/ios/banner/')
 					.set('Authorization',localStorage.str)
-					.send({img:self.baniosimg,url:self.baniosurl})
+					.send({img:self.baniosimg,url:self.baniosurl,num:self.baniosnum})
 					.set('Content-Type','application/json')
 					.end(function(err,res){
 						if (err) throw err;
@@ -52,6 +59,7 @@ export default {
 						}
 						self.baniosimg = ''
 						self.baniosurl = ''
+						self.baniosnum = ''
 					})
 				}
 		}

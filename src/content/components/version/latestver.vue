@@ -58,7 +58,6 @@
 				request
 					.get(self.url + '/app/latest/')
 					.end(function(err,res){
-						console.log(res.text)
 						if (err) throw err
 						var c =  JSON.parse(res.text)
 						self.name = c.name

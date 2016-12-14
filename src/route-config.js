@@ -36,11 +36,19 @@ import delPatch from './content/components/patch/delpatch.vue'
 
 import Product from './content/components/product/Product.vue'
 import showprod from './content/components/product/showprod.vue'
+import addProd from './content/components/product/addprod.vue'
 
-import iosDevice from './content/components/ios/ios.vue'
-import iosShow from './content/components/ios/showios.vue'
-import iosRegister from './content/components/ios/register.vue'
-import iosPush from './content/components/ios/push.vue'
+import iosDevice from './content/components/ios/iosfeedback/ios.vue'
+import iosShow from './content/components/ios/iosfeedback/showios.vue'
+import iosFeedback from './content/components/ios/iosfeedback/feedback.vue'
+
+import iosPush from	'./content/components/ios/iospush/iospush.vue'
+import iosRegister from './content/components/ios/iospush/register.vue'
+import iosPushinfo from './content/components/ios/iospush/push.vue'
+
+import iosConfig from './content/components/ios/iosconfig/config.vue'
+import iosGet from './content/components/ios/iosconfig/getconfig.vue'
+import iosManage from './content/components/ios/iosconfig/manageconfig.vue'
 
 import Login from './login.vue'
 
@@ -152,6 +160,9 @@ export default {
 						'/:id':{
 							name:'product',
 							component: showprod
+						},
+						'add':{
+							component:addProd
 						}
 					}
 			},
@@ -161,11 +172,30 @@ export default {
 						'/':{
 							component: iosShow
 						},
-						'/register':{
+						'/feedback':{
+							component:iosFeedback
+						}
+					}
+			},
+			'ios-push':{
+				component: iosPush,
+					subRoutes:{
+						'/':{
 							component:iosRegister
 						},
 						'/push':{
-							component:iosPush
+							component:iosPushinfo
+						}
+					}
+			},
+			'ios-config':{
+				component:iosConfig,
+					subRoutes:{
+						'/':{
+							component:iosGet
+						},
+						'/manage':{
+							component:iosManage
 						}
 					}
 			}

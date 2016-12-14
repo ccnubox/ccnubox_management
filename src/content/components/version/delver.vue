@@ -34,13 +34,12 @@ export default {
 			e.preventDefault()
 			var self = this
 			request
-				.del(self.url + '/app/')
+				.del(self.url + '/app/'+ self.verdel)
 				.set('Authorization',localStorage.str)
-				.query({version:self.verdel})
 				.end(function(err,res){
 					if (err) throw err;
 					if (res.status == 200) {
-						alert(res.msg);
+						alert(res.body.msg)
 					}
 					self.verdel = ''
 				})

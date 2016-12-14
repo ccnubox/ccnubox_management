@@ -54,11 +54,12 @@
 					.get(self.url + '/patch/latest/')
 					.end(function(err,res){
 						if (err) throw err
-						self.version = res.body.version
-						self.download = res.body.download
-						self.update = res.body.update
-						self.intro = res.body.intro
-						self.size = res.body.size
+						var c =  JSON.parse(res.text)
+						self.version = c.version
+						self.download = c.download
+						self.update = c.update
+						self.intro = c.intro
+						self.size = c.size
 					})
 			}
 		}
