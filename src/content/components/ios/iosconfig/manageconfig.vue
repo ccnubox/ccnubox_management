@@ -49,7 +49,7 @@ export default {
 					})
 				}
 		},
-		upload: function(e){
+		update: function(e){
 			e.preventDefault()
 			var self =  this
 			if (this.config) {
