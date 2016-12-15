@@ -85,6 +85,10 @@
             return {
                 url:'http://121.42.176.189:5486/api'
             }
+            // when build
+            // return {
+            //     url:'http://boxmanage.muxixyz.com/api'
+            // }
         }
     } 
 </script>
