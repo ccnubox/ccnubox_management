@@ -4,31 +4,31 @@
 	    <div class="control-group">
 	      	<label class="control-label" for="focusedInput">version</label>
 	      	<div class="controls">
-	        	<input class="input-xlarge focused" id="focusedInput" v-model="ptcver" type="text" value="v">
+	        	<input class="input-xlarge focused" id="focusedInput" v-model="ptcver" type="text" placeholder="v">
 	      	</div>
 	    </div>
 	    <div class="control-group">
 	      	<label class="control-label" for="focusedInput">下载地址</label>
 	      	<div class="controls">
-	        	<input class="input-xlarge focused" id="focusedInput" v-model="ptcdnl" type="text" value="url">
+	        	<input class="input-xlarge focused" id="focusedInput" v-model="ptcdnl" type="text" placeholder="url">
 	      	</div>
 	    </div>
 	    <div class="control-group">
 	      	<label class="control-label" for="focusedInput">更新时间</label>
 	      	<div class="controls">
-	        	<input class="input-xlarge focused" id="focusedInput" v-model="ptcupdt" type="text" value="2016-0802">
+	        	<input class="input-xlarge focused" id="focusedInput" v-model="ptcupdt" type="text" placeholder="2016-0802">
 	      	</div>
 	    </div>
 	    <div class="control-group">
 	      	<label class="control-label" for="focusedInput">更新说明</label>
 	      	<div class="controls">
-	        	<input class="input-xlarge focused" id="focusedInput" v-model="ptcintro" type="text" value="更新了...">
+	        	<input class="input-xlarge focused" id="focusedInput" v-model="ptcintro" type="text" placeholder="更新了...">
 	      	</div>
 	    </div>
 	    <div class="control-group">
 	      	<label class="control-label" for="focusedInput">补丁包大小</label>
 	      	<div class="controls">
-	        	<input class="input-xlarge focused" id="focusedInput" v-model="ptcsize" type="text" value="M">
+	        	<input class="input-xlarge focused" id="focusedInput" v-model="ptcsize" type="text" placeholder="M">
 	      	</div>
 	    </div>
     </div>

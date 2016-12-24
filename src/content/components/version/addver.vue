@@ -4,37 +4,37 @@
 	    <div class="control-group">
 	      	<label class="control-label" for="focusedInput">name</label>
 	      	<div class="controls">
-	        	<input class="input-xlarge focused" id="focusedInput" v-model="appname" type="text" value="">
+	        	<input class="input-xlarge focused" id="focusedInput" v-model="appname" type="text">
 	      	</div>
 	    </div>
 	    <div class="control-group">
 	      	<label class="control-label" for="focusedInput">version</label>
 	      	<div class="controls">
-	        	<input class="input-xlarge focused" id="focusedInput" v-model="appver" type="text" value="v">
+	        	<input class="input-xlarge focused" id="focusedInput" v-model="appver" type="text" placeholder="v">
 	      	</div>
 	    </div>
 	    <div class="control-group">
 	      	<label class="control-label" for="focusedInput">下载地址</label>
 	      	<div class="controls">
-	        	<input class="input-xlarge focused" id="focusedInput" v-model="appdnl" type="text" value="url">
+	        	<input class="input-xlarge focused" id="focusedInput" v-model="appdnl" type="text" placeholder="url">
 	      	</div>
 	    </div>
 	    <div class="control-group">
 	      	<label class="control-label" for="focusedInput">更新时间</label>
 	      	<div class="controls">
-	        	<input class="input-xlarge focused" id="focusedInput" v-model="appupdt" type="text" value="2016-0802">
+	        	<input class="input-xlarge focused" id="focusedInput" v-model="appupdt" type="text" placeholder="2016-0802">
 	      	</div>
 	    </div>
 	    <div class="control-group">
 	      	<label class="control-label" for="focusedInput">更新说明</label>
 	      	<div class="controls">
-	        	<input class="input-xlarge focused" id="focusedInput" v-model="appintro" type="text" value="更新了...">
+	        	<input class="input-xlarge focused" id="focusedInput" v-model="appintro" type="text" placeholder="更新了...">
 	      	</div>
 	    </div>
 	    <div class="control-group">
 	      	<label class="control-label" for="focusedInput">更新包大小</label>
 	      	<div class="controls">
-	        	<input class="input-xlarge focused" id="focusedInput" v-model="appsize" type="text" value="M">
+	        	<input class="input-xlarge focused" id="focusedInput" v-model="appsize" type="text" placeholder="M">
 	      	</div>
 	    </div>
     </div>

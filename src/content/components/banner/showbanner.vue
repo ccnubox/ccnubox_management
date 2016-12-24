@@ -22,11 +22,11 @@
 		    <div class="control-group">
 		      	<label class="control-label" for="focusedInput">七牛外链</label>
 		      	<div class="controls">
-		        	<input class="input-xlarge focused" id="img" type="text" value="点击表单上的七牛链接" v-model="imgurl" required>
+		        	<input class="input-xlarge focused" id="img" type="text" placeholder="点击表单上的七牛链接" v-model="imgurl" required>
 		      	</div>
 		      	<label class="control-label" for="focusedInput">修改排序</label>
 		      	<div class="controls">
-		        	<input class="input-xlarge focused" id="url" type="text" value="num" v-model="num" required>
+		        	<input class="input-xlarge focused" id="url" type="text" placeholder="num" v-model="num" required>
 		      	</div>
 		    </div>
 	    </div>
@@ -64,7 +64,7 @@ export default {
 			// 	"url": "http://muxistudio.com",  
 			// 	'update': "2016-0805"
 			// }
-			num:0,
+			num:1,
 			imgurl:""
 		}
 	},
@@ -74,20 +74,22 @@ export default {
 		},
 		modify(){
 			var self = this
-			request
-				.put(self.url + '/banner/')
-				.set('Authorization',localStorage.str)
-				.send({img:self.imgurl,num:self.num})
-				.set('Content-Type','application/json')
-				.end(function(err,res){
-					if (err) throw err;
-					if (res.status == 200) {
-						alert('修改成功');
-						self.getinfo()
-					}
-					self.imgurl = ''
-					self.num = ''
-				})
+			if(this.imgurl){
+				request
+					.put(self.url + '/banner/')
+					.set('Authorization',localStorage.str)
+					.send({img:self.imgurl,num:self.num})
+					.set('Content-Type','application/json')
+					.end(function(err,res){
+						if (err) throw err;
+						if (res.status == 200) {
+							alert('修改成功');
+							self.getinfo()
+						}
+						self.imgurl = ''
+						self.num = ''
+					})
+			}
 		},
 		getinfo(){
 			var self = this

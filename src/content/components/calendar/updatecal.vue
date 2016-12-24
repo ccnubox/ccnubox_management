@@ -4,13 +4,13 @@
 	    <div class="control-group">
 	      	<label class="control-label" for="focusedInput">七牛外链</label>
 	      	<div class="controls">
-	        	<input class="input-xlarge focused" id="focusedInput" type="text" value="七牛文件名(若有后缀包括后缀)" v-model="calimg">
+	        	<input class="input-xlarge focused" id="focusedInput" type="text" placeholder="七牛文件名(若有后缀包括后缀)" v-model="calimg">
 	      	</div>
 	    </div>
 	    <div class="control-group">
 	      	<label class="control-label" for="focusedInput">图片大小</label>
 	      	<div class="controls">
-	        	<input class="input-xlarge focused" id="focusedInput" type="text" value="_x_" v-model="calsize">
+	        	<input class="input-xlarge focused" id="focusedInput" type="text" placeholder="_x_" v-model="calsize">
 	      	</div>
 	    </div>
     </div>

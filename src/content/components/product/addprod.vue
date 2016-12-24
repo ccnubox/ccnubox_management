@@ -4,25 +4,25 @@
 	    <div class="control-group">
 	      	<label class="control-label" for="focusedInput">产品名称</label>
 	      	<div class="controls">
-	        	<input class="input-xlarge focused" id="focusedInput" v-model="pname" type="text" value="">
+	        	<input class="input-xlarge focused" id="focusedInput" v-model="pname" type="text">
 	      	</div>
 	    </div>
 	    <div class="control-group">
 	      	<label class="control-label" for="focusedInput">icon</label>
 	      	<div class="controls">
-	        	<input class="input-xlarge focused" id="focusedInput" v-model="picon" type="text" value="icon七牛外链">
+	        	<input class="input-xlarge focused" id="focusedInput" v-model="picon" type="text" placeholder="icon七牛外链">
 	      	</div>
 	    </div>
 	    <div class="control-group">
 	      	<label class="control-label" for="focusedInput">产品url</label>
 	      	<div class="controls">
-	        	<input class="input-xlarge focused" id="focusedInput" v-model="purl" type="text" value="">
+	        	<input class="input-xlarge focused" id="focusedInput" v-model="purl" type="text">
 	      	</div>
 	    </div>
 	    <div class="control-group">
 	      	<label class="control-label" for="focusedInput">产品介绍</label>
 	      	<div class="controls">
-	        	<input class="input-xlarge focused" id="focusedInput" v-model="pintro" type="text" value="">
+	        	<input class="input-xlarge focused" id="focusedInput" v-model="pintro" type="text">
 	      	</div>
 	    </div>
     </div>

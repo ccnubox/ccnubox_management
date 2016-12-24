@@ -4,13 +4,13 @@
 	    <div class="control-group">
 	      	<label class="control-label" for="focusedInput">七牛外链</label>
 	      	<div class="controls">
-	        	<input class="input-xlarge focused" id="focusedInput" v-model="startimg" type="text" value="七牛文件名(若有后缀包括后缀)">
+	        	<input class="input-xlarge focused" id="focusedInput" v-model="startimg" type="text" placeholder="七牛文件名(若有后缀包括后缀)">
 	      	</div>
 	    </div>
 	    <div class="control-group">
 	      	<label class="control-label" for="focusedInput">图片链接</label>
 	      	<div class="controls">
-	        	<input class="input-xlarge focused" id="focusedInput" v-model="starturl" type="text" value="url">
+	        	<input class="input-xlarge focused" id="focusedInput" v-model="starturl" type="text" placeholder="url">
 	      	</div>
 	    </div>
     </div>

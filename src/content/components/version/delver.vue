@@ -4,7 +4,7 @@
 		    <div class="control-group">
 		      	<label class="control-label" for="focusedInput">name</label>
 		      	<div class="controls">
-		        	<input class="input-xlarge focused" id="name" type="text" value="版本号" v-model="verdel">
+		        	<input class="input-xlarge focused" id="name" type="text" placeholder="版本号" v-model="verdel">
 		      	</div>
 		    </div>
 	    </div>
