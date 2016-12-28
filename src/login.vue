@@ -26,16 +26,20 @@ export default {
 		}
 	},
 	methods:{
-		login: function(){		
-			var emtxt = this.email
-			var pwtxt = this.password
-			var str = emtxt+':'+pwtxt
-			var encodestr = btoa(str)
-			localStorage.str='Basic ' + encodestr
-			console.log(localStorage.str)
-			this.email = ''
-			this.password = ''
-			window.location.href="../"
+		login: function(){
+			if(this.email && this.password)	{
+				var emtxt = this.email
+				var pwtxt = this.password
+				var str = emtxt+':'+pwtxt
+				var encodestr = btoa(str)
+				localStorage.str='Basic ' + encodestr
+				console.log(localStorage.str)
+				this.email = ''
+				this.password = ''
+				this.$router.go('/')
+			}else {
+				alert('please enter your account and password')
+			}
 		},
 	}
 }
