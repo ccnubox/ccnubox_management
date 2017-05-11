@@ -3,8 +3,8 @@
 		<thead>
 			<tr>
 				<th width="8%">Banner</th>
-				<th width="40%">七牛链接</th>
-				<th width="40%">图片名</th>
+				<th width="40%">图片链接</th>
+				<th width="40%">指向链接</th>
 				<th width="12%">更新时间</th>
 			</tr>
 		</thead>
@@ -12,7 +12,7 @@
 			<tr v-for="banner in banners"  track-by="$index">
 				<td>{{ banner.num }}</td>
 				<td @click="geturl(banner.img)"><a href="{{ banner.img }}">{{ banner.img }}</a></td>
-				<td><a href="{{ banner.img }}">{{ banner.filename }}</a></td>
+				<td><a href="{{ banner.url }}">{{ banner.url }}</a></td>
 				<td>{{ banner.update }}</td>
 			</tr>
 		</tbody>
@@ -20,7 +20,7 @@
 	<form method="put">
 	  	<fieldset>
 		    <div class="control-group">
-		      	<label class="control-label" for="focusedInput">七牛外链</label>
+		      	<label class="control-label" for="focusedInput">图片链接</label>
 		      	<div class="controls">
 		        	<input class="input-xlarge focused" id="img" type="text" placeholder="点击表单上的七牛链接" v-model="imgurl" required>
 		      	</div>

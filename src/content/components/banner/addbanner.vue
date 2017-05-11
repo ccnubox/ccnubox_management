@@ -2,13 +2,13 @@
 	<form class="form-horizontal" method="post">
 	  	<fieldset>
 		    <div class="control-group">
-		      	<label class="control-label" for="focusedInput">七牛文件名</label>
+		      	<label class="control-label" for="focusedInput">图片外链</label>
 		      	<div class="controls">
-		        	<input class="input-xlarge focused" id="img" type="text" placeholder="七牛文件名(若有后缀包括后缀)" v-model="banimg" required>
+		        	<input class="input-xlarge focused" id="img" type="text" placeholder="图片外链" v-model="banimg" required>
 		      	</div>
 		    </div>
 		    <div class="control-group">
-		      	<label class="control-label" for="focusedInput">图片资源</label>
+		      	<label class="control-label" for="focusedInput">指向链接</label>
 		      	<div class="controls">
 		        	<input class="input-xlarge focused" id="url" type="text" placeholder="url" v-model="banurl" required>
 		      	</div>

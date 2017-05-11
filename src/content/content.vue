@@ -82,13 +82,13 @@
 <script>
    export default {
         data(){
-            // return {
-            //     url:'http://121.42.176.189:5486/api'
-            // }
-            //when build
             return {
-                url:'/api'
+                url:'http://120.77.8.149:5577/api'
             }
+            //when build
+            // return {
+            //     url:'/api'
+            // }
         }
     } 
 </script>
