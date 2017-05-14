@@ -33,7 +33,7 @@ export default {
 			e.preventDefault()
 			var self = this
 			request
-				.del(self.url + '/banner/')
+				.del(self.url + '/ios/banner/')
 				.set('Authorization',localStorage.str)
 				.query({name:self.bannerdel})
 				.end(function(err,res){

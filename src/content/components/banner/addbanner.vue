@@ -48,7 +48,7 @@ export default {
 			var self =  this
 			if (this.banimg && this.banurl && this.bannum) {
 				request
-					.post(self.url + '/banner/')
+					.post(self.url + '/ios/banner/')
 					.set('Authorization',localStorage.str)
 					.send({img:self.banimg,url:self.banurl,num:self.bannum})
 					.set('Content-Type','application/json')

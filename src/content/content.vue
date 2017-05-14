@@ -35,9 +35,9 @@
                     <li>
                         <a v-link="{ path: '/banner'}"><i class="icon-chevron-right"></i>Banner</a>
                     </li>
-                    <li>
+<!--                     <li>
                         <a v-link="{ path: '/banner-ios'}"><i class="icon-chevron-right"></i>Banner for ios</a>
-                    </li>
+                    </li> -->
                     <li>
                         <a v-link="{ path: '/calendar'}"><i class="icon-chevron-right"></i>校历</a>
                     </li>
@@ -82,13 +82,13 @@
 <script>
    export default {
         data(){
-            return {
-                url:'http://120.77.8.149:5577/api'
-            }
-            //when build
             // return {
-            //     url:'/api'
+            //     url:'http://120.77.8.149:5577/api'
             // }
+            //when build
+            return {
+                url:'/api'
+            }
         }
     } 
 </script>

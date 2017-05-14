@@ -76,7 +76,7 @@ export default {
 			var self = this
 			if(this.imgurl){
 				request
-					.put(self.url + '/banner/')
+					.put(self.url + '/ios/banner/')
 					.set('Authorization',localStorage.str)
 					.send({img:self.imgurl,num:self.num})
 					.set('Content-Type','application/json')
@@ -94,7 +94,7 @@ export default {
 		getinfo(){
 			var self = this
 			request
-				.get(self.url + '/banner/')
+				.get(self.url + '/ios/banner/')
 				.end(function(err,res){
 					console.log(res.text)
 					if (err) throw err
