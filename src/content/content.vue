@@ -83,11 +83,11 @@
    export default {
         data(){
             // return {
-            //     url:'http://120.77.8.149:5577/api'
+            //     url:'http://120.77.8.149:8888/api'
             // }
             //when build
             return {
-                url:'/api'
+                url:'https://ccnubox.muxixyz.com/api'
             }
         }
     } 
