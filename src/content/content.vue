@@ -87,7 +87,7 @@
             // }
             //when build
             return {
-                url:'https://ccnubox.muxixyz.com/api'
+                url:'/api'
             }
         }
     } 

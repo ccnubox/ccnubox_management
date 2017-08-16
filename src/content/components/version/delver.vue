@@ -34,7 +34,7 @@ export default {
 			e.preventDefault()
 			var self = this
 			request
-				.del(self.url + '/app/'+ self.verdel)
+				.del(self.url + '/app/'+ self.verdel+'/')
 				.set('Authorization',localStorage.str)
 				.end(function(err,res){
 					if (err) throw err;

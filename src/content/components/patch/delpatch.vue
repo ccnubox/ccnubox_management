@@ -33,7 +33,7 @@ export default {
 			e.preventDefault()
 			var self = this
 			request
-				.del(self.url + '/patch/' + self.patchdel)
+				.del(self.url + '/patch/' + self.patchdel+'/')
 				.set('Authorization',localStorage.str)			
 				.end(function(err,res){
 					if (err) throw err;
